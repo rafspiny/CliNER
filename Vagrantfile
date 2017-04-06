@@ -14,12 +14,15 @@
 Vagrant.configure(2) do |config|
   
   
-config.vm.box = "hashicorp/precise32"
+#config.vm.box = "hashicorp/precise32"
+config.vm.box = "ubuntu/trusty32"
 
   
 
 # password for login 
+config.ssh.username = "vagrant"
 config.ssh.password = "vagrant"
+config.ssh.insert_key = "true"
 
 # install necassary packages and CliNER
   

@@ -3,7 +3,19 @@
 export CLINER_DIR="/vagrant"
 
 # Update repositories before attempting to download
+# sudo apt-get update
+
+# Missing some basic utilities here...like unzip and the jdk8
+# python-software-properties
+sudo apt-get install software-properties-common python-software-properties -y
+sudo add-apt-repository ppa:webupd8team/java -y
 sudo apt-get update
+# Must accept the Oracle license
+echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | debconf-set-selections
+echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 seen true" | debconf-set-selections
+# Install Oracle JDK 8
+sudo apt-get install oracle-java8-installer -y
+sudo apt install oracle-java8-set-default unzip -y
 
 # Install system dependencies
 sudo apt-get install python-pip python-dev g++ gfortran libopenblas-dev liblapack-dev make -y

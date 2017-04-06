@@ -6,9 +6,15 @@ then
 fi
 
 # download files and setup proper directories
-wget http://nlp.stanford.edu/software/stanford-corenlp-full-2015-12-09.zip
+echo "PWD: $PWD"
+if [ -e "stanford-corenlp-full-2015-12-09.zip" ];
+then
+    echo "File already exists. Skipping download";
+else
+    wget -quiet http://nlp.stanford.edu/software/stanford-corenlp-full-2015-12-09.zip
+fi
 
-mv stanford-corenlp-full-2015-12-09.zip $CLINER_DIR/cliner/lib/java/stanford_nlp/
+cp stanford-corenlp-full-2015-12-09.zip $CLINER_DIR/cliner/lib/java/stanford_nlp/
 
 cd $CLINER_DIR/cliner/lib/java/stanford_nlp
 
